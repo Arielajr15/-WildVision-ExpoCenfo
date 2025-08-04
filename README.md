@@ -22,8 +22,9 @@ Finalmente, el proyecto se alinea con los principios de sostenibilidad y bajo im
 
 # 5. Diseño Preliminar
 
+<img width="1280" height="290" alt="image" src="https://github.com/user-attachments/assets/b9e35859-a9e2-4888-bd11-1b0affd8ba40" />
 
-
+El sistema está centrado en un ESP32-CAM, que actúa como microcontrolador y cámara. Se conecta a sensores (como el de temperatura y un comedero dividido) y utiliza un módulo WiFi para enviar imágenes y datos a una API de inteligencia artificial, la cual analiza las especies de aves. La información puede almacenarse localmente o enviarse a una aplicación web o móvil para que el usuario final visualice los resultados.
 
 
 
