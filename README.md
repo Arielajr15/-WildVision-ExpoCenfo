@@ -1,7 +1,10 @@
 # 1. Informacion Del Proyecto
 -Nombre:WildVision
+
 -Equipo:
--Roles
+
+-Roles:
+
 Este proyecto consiste en el desarrollo de un visor inteligente capaz de identificar aves en tiempo real mediante el uso de inteligencia artificial y microcontroladores.
 
 # 2. Descripcion y Justificacion 
