@@ -1,9 +1,7 @@
 # 1. Informacion Del Proyecto
--Nombre:WildVision
-
--Equipo:
-
--Roles:
+- Nombre: WildVision
+- Equipo:
+- Roles:
 
 Este proyecto consiste en el desarrollo de un visor inteligente capaz de identificar aves en tiempo real mediante el uso de inteligencia artificial y microcontroladores.
 
@@ -16,11 +14,24 @@ Finalmente, el proyecto se alinea con los principios de sostenibilidad y bajo im
 
 # 3. Objetivos del Proyecto
 
+### Objetivo General
+Desarrollar un visor inteligente de aves basado en el ESP32-CAM que, mediante sensores y una API de inteligencia artificial, pueda capturar imágenes, analizar especies y mostrar resultados al usuario final a través de una aplicación web o móvil.
 
+### Objetivos Específicos
+- Capturar imágenes de aves mediante la cámara del ESP32-CAM.
+- Medir condiciones del entorno (como temperatura) mediante sensores.
+- Enviar datos e imágenes a una API de IA para identificación de la especie.
+- Mostrar los resultados en una interfaz accesible (web o app móvil).
+- Permitir almacenamiento local de información cuando no haya conexión.
 
 
 # 4. Requisitos Iniciales 
-
+### El sistema debe ser capaz de:
+-  Capturar imágenes con calidad suficiente desde el ESP32-CAM.
+-  Medir temperatura ambiente utilizando sensores DHT22 o BME280.
+-  Conectarse a una red WiFi y enviar datos a la nube o API externa.
+-  Recibir la especie analizada desde una API de inteligencia artificial.
+-  Mostrar los resultados al usuario y guardar respaldo localmente si es necesario
 
 
 # 5. Diseño Preliminar
@@ -28,6 +39,25 @@ Finalmente, el proyecto se alinea con los principios de sostenibilidad y bajo im
 <img width="1280" height="290" alt="image" src="https://github.com/user-attachments/assets/b9e35859-a9e2-4888-bd11-1b0affd8ba40" />
 
 El sistema está centrado en un ESP32-CAM, que actúa como microcontrolador y cámara. Se conecta a sensores (como el de temperatura y un comedero dividido) y utiliza un módulo WiFi para enviar imágenes y datos a una API de inteligencia artificial, la cual analiza las especies de aves. La información puede almacenarse localmente o enviarse a una aplicación web o móvil para que el usuario final visualice los resultados.
+
+### Componentes previstos
+
+- **Microcontrolador:**  
+  ESP32-CAM (con cámara integrada)
+
+- **Sensores / Actuadores:**  
+  - Sensor de temperatura: DHT22 o BME280  
+  - Comedero dividido: para distintos tipos de alimento (semillas y néctar)
+
+- **LLM / API de IA:**  
+  - API para reconocimiento de especies de aves (se contempla su uso ) 
+  - Puede estar entrenada en plataformas como Google AutoML, Teachable Machine, Hugging Face, etc.
+
+- **Librerías y herramientas:**  
+  - `esp_camera.h` (control de cámara)  
+  - `WiFi.h` (para conectividad)  
+  - `ArduinoJson.h` (manejo de JSON si se usa HTTP)  
+  - Backend opcional con Python (Flask o FastAPI)
 
 
 
