@@ -9,11 +9,29 @@ Este proyecto consiste en el desarrollo de un visor inteligente capaz de identif
 
 # 2. Descripcion y Justificacion 
 
-La observación de aves y vida silvestre es una actividad esencial para la educación ambiental, la investigación científica y la conservación de la biodiversidad. Sin embargo, muchos de los métodos tradicionales para estudiar el comportamiento animal en su entorno natural requieren una gran inversión de tiempo, presencia humana constante y conocimientos técnicos para identificar especies con precisión.
-El proyecto WildVision responde a esta necesidad mediante el desarrollo de un visor inteligente, autónomo y de bajo consumo energético, capaz de atraer, registrar y analizar la presencia de aves, mariposas y otros animales silvestres. Al integrar un sistema de cámara (ESP32-CAM), sensores de temperatura, un comedero pasivo dividido, y herramientas de inteligencia artificial, se ofrece una solución práctica y moderna para capturar evidencia visual y contextual de la fauna local.
-Además, este dispositivo no solo permite el registro visual, sino que también analiza las imágenes mediante APIs de inteligencia artificial para identificar especies y comportamientos. Esto democratiza el acceso al conocimiento natural, permitiendo que estudiantes, educadores, científicos y comunidades rurales puedan obtener información valiosa sin necesidad de experiencia técnica avanzada.
-Finalmente, el proyecto se alinea con los principios de sostenibilidad y bajo impacto ambiental, al no depender de mecanismos motorizados para el dispensador y al promover el uso de tecnologías libres y de bajo costo.
+Problema que se aborda:
+La observación de aves y otros animales silvestres es difícil sin alterar su comportamiento natural. Además, identificar especies y comportamientos manualmente requiere tiempo, presencia constante y conocimientos técnicos. Estas limitaciones dificultan la participación de estudiantes, comunidades rurales y personas con poco acceso a recursos tecnológicos.
 
+Importancia y contexto:
+El proyecto WildVision ofrece una alternativa moderna y accesible para el estudio de la fauna silvestre mediante un visor inteligente que combina sensores, cámara, y herramientas de inteligencia artificial. En un contexto de creciente pérdida de biodiversidad y cambio climático, contar con tecnologías que ayuden a monitorear y proteger el entorno natural es crucial para investigadores, educadores y comunidades.
+
+Este sistema está diseñado para operar de forma autónoma, sin perturbar el ecosistema, y sin necesidad de interacción humana directa constante. Al no utilizar partes móviles para la dispensación de alimento, reduce la complejidad mecánica y el consumo energético, haciéndolo ideal para zonas rurales, bosques o jardines escolares.
+
+Usuarios/beneficiarios:
+Observadores de aves, biólogos y naturalistas.
+
+Docentes y estudiantes en áreas de ciencias, biología o ecología.
+
+Comunidades rurales y ecoturísticas que deseen promover la fauna local.
+
+Niños, niñas y jóvenes interesados en el aprendizaje interactivo sobre la naturaleza.
+
+Justificación del Proyecto:
+El visor inteligente WildVision facilita el estudio, monitoreo y apreciación de la fauna silvestre mediante una herramienta tecnológica de bajo costo, bajo consumo y alto valor educativo y científico. Su diseño sin motores en el dispensador permite que el sistema sea más robusto y sencillo de mantener, ideal para contextos en los que no hay acceso continuo a electricidad o personal técnico.
+
+La capacidad de capturar imágenes y analizarlas con inteligencia artificial agrega una capa innovadora al proyecto, permitiendo no solo registrar eventos, sino también generar conocimiento automático sobre las especies observadas. Esto democratiza el acceso a la ciencia y a la educación ambiental, haciendo que cualquier persona pueda aprender y contribuir al cuidado de la biodiversidad desde su entorno cercano.
+
+Además, el proyecto promueve valores sostenibles, como el uso de tecnologías libres, la reducción de componentes mecánicos innecesarios, y el aprovechamiento de energías alternativas, como baterías recargables o paneles solares. Así, WildVision no solo observa la naturaleza, sino que también la respeta.
 # 3. Objetivos del Proyecto
 
 
