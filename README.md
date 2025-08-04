@@ -1,7 +1,26 @@
-# -WildVision-ExpoCenfo
+#1. Informacion Del Proyecto
+-Nombre:WildVision
+-Equipo:
+-Roles
 Este proyecto consiste en el desarrollo de un visor inteligente capaz de identificar aves en tiempo real mediante el uso de inteligencia artificial y microcontroladores.
 
+#2. Descripcion y Justificacion 
 
+La observación de aves y vida silvestre es una actividad esencial para la educación ambiental, la investigación científica y la conservación de la biodiversidad. Sin embargo, muchos de los métodos tradicionales para estudiar el comportamiento animal en su entorno natural requieren una gran inversión de tiempo, presencia humana constante y conocimientos técnicos para identificar especies con precisión.
+El proyecto WildVision responde a esta necesidad mediante el desarrollo de un visor inteligente, autónomo y de bajo consumo energético, capaz de atraer, registrar y analizar la presencia de aves, mariposas y otros animales silvestres. Al integrar un sistema de cámara (ESP32-CAM), sensores de temperatura, un comedero pasivo dividido, y herramientas de inteligencia artificial, se ofrece una solución práctica y moderna para capturar evidencia visual y contextual de la fauna local.
+Además, este dispositivo no solo permite el registro visual, sino que también analiza las imágenes mediante APIs de inteligencia artificial para identificar especies y comportamientos. Esto democratiza el acceso al conocimiento natural, permitiendo que estudiantes, educadores, científicos y comunidades rurales puedan obtener información valiosa sin necesidad de experiencia técnica avanzada.
+Finalmente, el proyecto se alinea con los principios de sostenibilidad y bajo impacto ambiental, al no depender de mecanismos motorizados para el dispensador y al promover el uso de tecnologías libres y de bajo costo.
+
+#3. Objetivos del Proyecto
+
+
+
+
+#4. Requisitos Iniciales 
+
+
+
+#5. Diseño Preliminar
 
 
 
