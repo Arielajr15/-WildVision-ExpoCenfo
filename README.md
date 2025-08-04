@@ -1,2 +1,128 @@
 # -WildVision-ExpoCenfo
 Este proyecto consiste en el desarrollo de un visor inteligente capaz de identificar aves en tiempo real mediante el uso de inteligencia artificial y microcontroladores.
+
+
+
+
+
+
+
+
+# 6. Plan de Trabajo 
+| Fecha          | Actividad                                                               |
+| -------------- | ----------------------------------------------------------------------- |
+| **03/08/2025** | Revisión del código base, definición de funciones del sistema           |
+| **04–08/08**   | Configuración y pruebas de cámara en ESP32, captura de imagen básica    |
+| **09–11/08**   | Integración de sensores de temperatura, envío de datos vía serial       |
+| **12–13/08**   | Conexión entre ESP32 y modelo de IA (prueba local o en servidor ligero) |
+| **14–15/08**   | Desarrollo de app receptora (puede ser móvil o web embebida)            |
+| **16/08/2025** | Pruebas integradas: captura de imagen → análisis IA → visualización     |
+| **17–18/08**   | Documentación, capturas, pruebas finales, limpieza de código            |
+| **19/08/2025** |  **Entrega del repositorio final**                                      |
+| **20/08/2025** |  **Presentación final del proyecto**                                    |
+
+**Riesgos identificados y mitigaciones**
+Riesgo 1: Conexión inestable entre ESP32 y cámara o IA.
+Mitigación: Realizar pruebas con múltiples cables, asegurar fuente de alimentación estable y tener versiones offline del modelo si es posible.
+Riesgo 2: El modelo de IA no reconoce bien las aves por baja resolución.
+Mitigación: Usar resolución mínima aceptable (QVGA o superior) y entrenar el modelo con imágenes similares a las que entrega la cámara del ESP32.
+
+# 7.Prototipos conceptuales
+##*Código mínimo de prueba*
+#include "esp_camera.h"  // Librería para controlar la cámara del ESP32
+
+// Definición de los pines GPIO conectados a la cámara AI Thinker
+#define PWDN_GPIO_NUM    -1   // No se utiliza
+#define RESET_GPIO_NUM   -1   // No se utiliza
+#define XCLK_GPIO_NUM     0
+#define SIOD_GPIO_NUM    26
+#define SIOC_GPIO_NUM    27
+
+#define Y9_GPIO_NUM      35
+#define Y8_GPIO_NUM      34
+#define Y7_GPIO_NUM      39
+#define Y6_GPIO_NUM      36
+#define Y5_GPIO_NUM      21
+#define Y4_GPIO_NUM      19
+#define Y3_GPIO_NUM      18
+#define Y2_GPIO_NUM       5
+
+#define VSYNC_GPIO_NUM   25
+#define HREF_GPIO_NUM    23
+#define PCLK_GPIO_NUM    22
+
+/**
+ * Función de configuración inicial.
+ * Inicializa el puerto serial y la cámara del ESP32.
+ */
+void setup() {
+  Serial.begin(115200);  // Inicia comunicación serial a 115200 baudios
+
+  /**
+   * Estructura que contiene la configuración de la cámara:
+   * Se definen los pines, resolución, calidad y formato de imagen.
+   */
+  camera_config_t config;
+  config.ledc_channel = LEDC_CHANNEL_0;
+  config.ledc_timer = LEDC_TIMER_0;
+  
+  // Asignación de pines de datos (D0 a D7)
+  config.pin_d0 = Y2_GPIO_NUM;
+  config.pin_d1 = Y3_GPIO_NUM;
+  config.pin_d2 = Y4_GPIO_NUM;
+  config.pin_d3 = Y5_GPIO_NUM;
+  config.pin_d4 = Y6_GPIO_NUM;
+  config.pin_d5 = Y7_GPIO_NUM;
+  config.pin_d6 = Y8_GPIO_NUM;
+  config.pin_d7 = Y9_GPIO_NUM;
+
+  // Asignación de pines de sincronización y control
+  config.pin_xclk = XCLK_GPIO_NUM;
+  config.pin_pclk = PCLK_GPIO_NUM;
+  config.pin_vsync = VSYNC_GPIO_NUM;
+  config.pin_href = HREF_GPIO_NUM;
+  config.pin_sscb_sda = SIOD_GPIO_NUM;
+  config.pin_sscb_scl = SIOC_GPIO_NUM;
+  config.pin_pwdn = PWDN_GPIO_NUM;
+  config.pin_reset = RESET_GPIO_NUM;
+
+  // Configuraciones adicionales
+  config.xclk_freq_hz = 20000000;        // Frecuencia del reloj XCLK
+  config.pixel_format = PIXFORMAT_JPEG;  // Formato de imagen JPEG
+  config.frame_size = FRAMESIZE_QVGA;    // Resolución 320x240 (QVGA)
+  config.jpeg_quality = 12;              // Calidad de imagen JPEG (0-63, menor es mejor calidad)
+  config.fb_count = 1;                   // Número de frame buffers (1 para bajo consumo)
+
+  /**
+   * Inicializa la cámara con la configuración especificada.
+   * Si falla, imprime un mensaje de error por el monitor serial.
+   */
+  if (esp_camera_init(&config) != ESP_OK) {
+    Serial.println("Error al iniciar cámara");
+    return;
+  }
+
+  Serial.println("Cámara lista");
+}
+
+/**
+ * Función principal que se ejecuta en bucle.
+ * Captura una imagen y muestra su tamaño por el puerto serial.
+ */
+void loop() {
+  // Captura un frame de la cámara
+  camera_fb_t *fb = esp_camera_fb_get();
+  if (!fb) {
+    Serial.println("Error capturando imagen");
+    return;
+  }
+
+  // Muestra el tamaño de la imagen capturada
+  Serial.printf("Imagen capturada: %u bytes\n", fb->len);
+
+  // Libera el buffer de la imagen para futuras capturas
+  esp_camera_fb_return(fb);
+
+  // Espera 5 segundos antes de capturar otra imagen
+  delay(5000);
+}
