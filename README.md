@@ -23,12 +23,16 @@ Este proyecto consiste en el desarrollo de un visor inteligente capaz de identif
 
 **Riesgos identificados y mitigaciones**
 Riesgo 1: Conexión inestable entre ESP32 y cámara o IA.
+
 Mitigación: Realizar pruebas con múltiples cables, asegurar fuente de alimentación estable y tener versiones offline del modelo si es posible.
+
 Riesgo 2: El modelo de IA no reconoce bien las aves por baja resolución.
+
 Mitigación: Usar resolución mínima aceptable (QVGA o superior) y entrenar el modelo con imágenes similares a las que entrega la cámara del ESP32.
 
 # 7.Prototipos conceptuales
-##*Código mínimo de prueba*
+**Código mínimo de prueba**
+
 #include "esp_camera.h"  // Librería para controlar la cámara del ESP32
 
 // Definición de los pines GPIO conectados a la cámara AI Thinker
